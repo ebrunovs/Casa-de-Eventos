@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Cliente {
 	private int id;
-	private int CPF;
+	private String CPF;
 	private String nome;
 	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Cliente(int cPF, String nome) {
+	public Cliente(String cPF, String nome) {
 		super();
 		CPF = cPF;
 		this.nome = nome;
@@ -22,11 +22,11 @@ public class Cliente {
 		this.id = id;
 	}
 	
-	public int getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
 	
-	public void setCPF(int cPF) {
+	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
 	
