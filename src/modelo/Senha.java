@@ -4,20 +4,19 @@ public class Senha {
 	private int id;
 	private int codigo;
 	private Evento evento;
-	private String cliente;
+	private Cliente cliente;
 	
-	public Senha(int id, int codigo, Evento evento) {
+	public Senha(int codigo, Evento evento, Cliente cliente) {
 		super();
-		this.id = id;
 		this.codigo = codigo;
 		this.evento = evento;
 	}
 
-	public String getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(String cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 

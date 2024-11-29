@@ -8,10 +8,8 @@ public class Cliente {
 	private String nome;
 	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	
-	public Cliente(int id, int cPF, String nome) {
+	public Cliente(int cPF, String nome) {
 		super();
-		this.id = id;
 		CPF = cPF;
 		this.nome = nome;
 	}

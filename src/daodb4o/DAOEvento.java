@@ -1,8 +1,9 @@
 package daodb4o;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.db4o.query.Candidate;
+import com.db4o.query.Evaluation;
 import com.db4o.query.Query;
 
 import modelo.Cliente;
@@ -28,7 +29,7 @@ public class DAOEvento extends DAO<Evento> {
 		manager.store( obj );
 	}
 	
-	public List<Senha> senhasdoevento(String data){
+	public List<Senha> senhasData(String data){
 		Query q = manager.query();
 		q.constrain(Evento.class);
 		q.descend("data").constrain(data);
@@ -37,5 +38,26 @@ public class DAOEvento extends DAO<Evento> {
 			return dataEvento.getFirst().getListaSenhas();
 		}
 		return null;
+	}
+	
+	public List<Evento> senhasPorEvento(int n){
+		Query q = manager.query();
+		q.constrain(Evento.class);
+		q.constrain(new Filtro(n));
+		return q.execute();
+	}
+}
+
+
+/*-------------------------------------------------*/
+@SuppressWarnings("serial")
+class Filtro  implements Evaluation {
+	private int n;
+	public Filtro (int n) {
+		this.n=n;
+	}
+	public void evaluate(Candidate candidate) {
+		Evento e = (Evento) candidate.getObject();
+		candidate.include( e.getSenhas().size() > n );
 	}
 }

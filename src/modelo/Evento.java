@@ -9,9 +9,8 @@ public class Evento {
 	private double preco;
 	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Evento(int id, String nomeevento, String data, double preco) {
+	public Evento(String nomeevento, String data, double preco) {
 		super();
-		this.id = id;
 		this.nomeevento = nomeevento;
 		this.data = data;
 		this.preco = preco;
@@ -73,6 +72,4 @@ public class Evento {
 		}
 		return null;
 	}
-	
-	
 }
