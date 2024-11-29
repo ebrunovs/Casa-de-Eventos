@@ -10,6 +10,7 @@ public class Senha {
 		super();
 		this.codigo = codigo;
 		this.evento = evento;
+		this.cliente = cliente;
 	}
 
 	public Cliente getCliente() {
@@ -39,5 +40,4 @@ public class Senha {
 	public Evento getEvento() {
 		return evento;
 	}
-	
 }

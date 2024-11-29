@@ -67,6 +67,24 @@ public class Fachada {
 		}**/
 	}
 	
+	public static void criarCliente() throws Exception{
+		
+	}
+	
+	public static void apagarCliente() throws Exception{
+		// O cliente so pode ser apagado se nã tiver nenhuma senha
+	}
+	
+	public static void criarSenha() throws Exception{
+		// Senha so pode ser criada se não houver uma mesma no evento X
+		// Senha so pode ser criada se não houver uma mesma no cliente X
+	}
+	
+	public static void apagarSenha() throws Exception{
+		//Senha so pode ser apagada se for usada
+	}
+	
+	
 	public static void acessarEvento(Senha senha) throws Exception{
 		if (senhaUsada(senha)) {
 			throw new Exception("Senha já utilizada!");
