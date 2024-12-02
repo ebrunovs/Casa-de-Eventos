@@ -8,9 +8,8 @@ public class Cliente {
 	private String nome;
 	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Cliente(String cPF, String nome) {
+	public Cliente(String nome) {
 		super();
-		CPF = cPF;
 		this.nome = nome;
 	}
 	
@@ -38,7 +37,7 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public ArrayList<Senha> getListaSenhas() {
+	public ArrayList<Senha> getSenhas() {
 		return senhas;
 	}
 
@@ -55,6 +54,20 @@ public class Cliente {
 		}
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		String texto = "Cliente: CPF=" + CPF + ", nome=" + nome;
+		
+		texto += ", senhas: ";
+		for(Senha s : senhas)
+			if(s != null)
+				texto += s.getCodigo() + ", ";
+			else
+				texto += "";
+		return texto;
+	}
+	
 	
 	
 }

@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class Evento {
 	private int id;
-	private String nomeevento;
+	private String nome;
 	private String data;
 	private double preco;
 	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Evento(String nomeevento, String data, double preco) {
+	public Evento(String nome) {
 		super();
-		this.nomeevento = nomeevento;
-		this.data = data;
-		this.preco = preco;
+		this.nome = nome;
 	}
 
 	public int getId() {
@@ -24,17 +22,12 @@ public class Evento {
 		this.id = id;
 	}
 
-	public String getnomeevento() {
-		return nomeevento;
+	public String getNome() {
+		return nome;
 	}
 
-	@Override
-	public String toString() {
-		return "Evento [nomeevento=" + nomeevento + ", data=" + data + ", preco=" + preco + "]";
-	}
-
-	public void setnomeevento(String nomeevento) {
-		this.nomeevento = nomeevento;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getData() {
@@ -72,4 +65,18 @@ public class Evento {
 		}
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		String texto = "Evento: Nome=" + nome + ", data=" + data + ", preco=" + preco;
+		
+		texto += ", senhas: ";
+		for(Senha s : senhas)
+			if(s != null)
+				texto += s.getCodigo() + ", ";
+			else
+				texto += "";
+		return texto;
+	}
+	
 }

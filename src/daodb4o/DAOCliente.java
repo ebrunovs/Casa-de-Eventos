@@ -12,16 +12,15 @@ import modelo.Senha;
 
 public class DAOCliente  extends DAO<Cliente>{
 
-	public Cliente read (Object chave) {
-		int id = (Integer) chave;	
+	public Cliente read (String nome) {	
 		Query q = manager.query();
 		q.constrain(Cliente.class);
-		q.descend("id").constrain(id);
+		q.descend("nome").constrain(nome);
 		List<Cliente> resultados = q.execute();
-		if (resultados.size()>0)
-			return resultados.get(0);
-		else
-			return null;
+		if (resultados.size()>0) {
+			return resultados.get(0);}
+		else {
+			return null;}
 	}
 
 	public void create(Cliente obj){
@@ -30,14 +29,14 @@ public class DAOCliente  extends DAO<Cliente>{
 		manager.store( obj );
 	}
 	
-	public List<Evento> eventosdocliente(String cpf){
+	public List<Evento> customerEvents(String cpf){
 		Query q = manager.query();
 		q.constrain(Cliente.class);
 		q.descend("cpf").constrain(cpf);
 		List<Cliente> cliente = q.execute();
 		List<Evento> eventos = new ArrayList<>();
 		if(!cliente.isEmpty()) {
-			for(Senha s: cliente.get(0).getListaSenhas()) {
+			for(Senha s: cliente.get(0).getSenhas()) {
 				eventos.add(s.getEvento());
 			}
 		}

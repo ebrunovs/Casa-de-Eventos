@@ -4,15 +4,15 @@ import java.util.List;
 
 import com.db4o.query.Query;
 
+import modelo.Evento;
 import modelo.Senha;
 
 
 public class DAOSenha extends DAO<Senha>{
-	public Senha read (Object chave) {
-		int id = (Integer) chave;	
+	public Senha read (String cod) {
 		Query q = manager.query();
 		q.constrain(Senha.class);
-		q.descend("id").constrain(id);
+		q.descend("codigo").constrain(cod);
 		List<Senha> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);

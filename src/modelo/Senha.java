@@ -2,23 +2,13 @@ package modelo;
 
 public class Senha {
 	private int id;
-	private int codigo;
+	private String codigo;
 	private Evento evento;
 	private Cliente cliente;
 	
-	public Senha(int codigo, Evento evento, Cliente cliente) {
+	public Senha(String codigo) {
 		super();
 		this.codigo = codigo;
-		this.evento = evento;
-		this.cliente = cliente;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public int getId() {
@@ -29,15 +19,35 @@ public class Senha {
 		this.id = id;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
+	@Override
+	public String toString() {
+		return "Senha: Codigo=" + codigo + ", evento=" + evento.getNome() + ", cliente=" + cliente.getNome();
+	}
+//	--------------------RELACIONAMENTO--------------------------------
+	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 	public Evento getEvento() {
 		return evento;
 	}
+	
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+	
 }

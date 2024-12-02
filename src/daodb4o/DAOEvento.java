@@ -11,11 +11,10 @@ import modelo.Evento;
 import modelo.Senha;
 
 public class DAOEvento extends DAO<Evento> {
-	public Evento read (Object chave) {
-		int id = (Integer) chave;	
+	public Evento read (String nome) {	
 		Query q = manager.query();
 		q.constrain(Evento.class);
-		q.descend("id").constrain(id);
+		q.descend("nome").constrain(nome);
 		List<Evento> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);
@@ -29,18 +28,18 @@ public class DAOEvento extends DAO<Evento> {
 		manager.store( obj );
 	}
 	
-	public List<Senha> senhasData(String data){
+	public List<Senha> passwordsByDate(String data){
 		Query q = manager.query();
 		q.constrain(Evento.class);
 		q.descend("data").constrain(data);
 		List<Cliente> dataEvento = q.execute();
 		if(!dataEvento.isEmpty()) {
-			return dataEvento.getFirst().getListaSenhas();
+			return dataEvento.getFirst().getSenhas();
 		}
 		return null;
 	}
 	
-	public List<Evento> senhasPorEvento(int n){
+	public List<Evento> passwordsByEvent(int n){
 		Query q = manager.query();
 		q.constrain(Evento.class);
 		q.constrain(new Filtro(n));
