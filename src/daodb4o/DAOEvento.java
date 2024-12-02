@@ -32,7 +32,7 @@ public class DAOEvento extends DAO<Evento> {
 		Query q = manager.query();
 		q.constrain(Evento.class);
 		q.descend("data").constrain(data);
-		List<Cliente> dataEvento = q.execute();
+		List<Evento> dataEvento = q.execute();
 		if(!dataEvento.isEmpty()) {
 			return dataEvento.getFirst().getSenhas();
 		}

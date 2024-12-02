@@ -29,10 +29,10 @@ public class DAOCliente  extends DAO<Cliente>{
 		manager.store( obj );
 	}
 	
-	public List<Evento> customerEvents(String cpf){
+	public List<Evento> customerEvents(String nome){
 		Query q = manager.query();
 		q.constrain(Cliente.class);
-		q.descend("cpf").constrain(cpf);
+		q.descend("nome").constrain(nome);
 		List<Cliente> cliente = q.execute();
 		List<Evento> eventos = new ArrayList<>();
 		if(!cliente.isEmpty()) {

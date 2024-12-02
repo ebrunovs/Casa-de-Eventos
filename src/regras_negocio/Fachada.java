@@ -307,9 +307,9 @@ public class Fachada {
 	 * 
 	 **********************************************************/
 	
-	public static List<Evento> eventosCliente(String cpf){
+	public static List<Evento> eventosCliente(String nome){
 		List<Evento> resultado;
-		resultado = daoCliente.customerEvents(cpf);
+		resultado = daoCliente.customerEvents(nome);
 		return resultado;
 	}
 	public static List<Senha> senhasPorData(String data){
