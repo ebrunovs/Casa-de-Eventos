@@ -21,6 +21,13 @@ public class DAOEvento extends DAO<Evento> {
 		else
 			return null;
 	}
+	public  List<Evento> readAll(String caracteres) {
+		Query q = manager.query();
+		q.constrain(Cliente.class);
+		q.descend("nome").constrain(caracteres).like();		//insensitive
+		List<Evento> result = q.execute(); 
+		return result;
+	}
 
 	public void create(Evento obj){
 		int novoid = super.gerarId(Evento.class);  	

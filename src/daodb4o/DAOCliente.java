@@ -42,6 +42,14 @@ public class DAOCliente  extends DAO<Cliente>{
 		}
 		return eventos;
 	}
+	
+	public  List<Cliente> readAll(String caracteres) {
+		Query q = manager.query();
+		q.constrain(Cliente.class);
+		q.descend("nome").constrain(caracteres).like();		//insensitive
+		List<Cliente> result = q.execute(); 
+		return result;
+	}
 }
 
 

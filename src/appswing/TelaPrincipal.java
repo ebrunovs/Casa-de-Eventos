@@ -1,8 +1,8 @@
 package appswing;
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
- * Programação Orientada a Objetos
- * Prof. Fausto Maranhão Ayres
+ * Programaï¿½ï¿½o Orientada a Objetos
+ * Prof. Fausto Maranhï¿½o Ayres
  **********************************/
 
 import java.awt.EventQueue;
@@ -24,10 +24,10 @@ import regras_negocio.Fachada;
 
 public class TelaPrincipal {
 	private JFrame frame;
-	private JMenu mnVaga;
+	private JMenu mnCliente;
 	private JLabel label;
-	private JMenu mnCriar;
-	private JMenu mnApagar;
+	private JMenu mnEvento;
+	private JMenu mnSenha;
 
 	/**
 	 * Launch the application.
@@ -57,7 +57,7 @@ public class TelaPrincipal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("Viagem");
+		frame.setTitle("Casa de eventos");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -69,7 +69,7 @@ public class TelaPrincipal {
 		label.setBounds(0, 0, 444, 249);
 		label.setText("Inicializando...");
 		label.setBounds(0, 0, frame.getWidth(), frame.getHeight());
-		ImageIcon imagem = new ImageIcon(getClass().getResource("/imagens/viagem.jpg"));
+		ImageIcon imagem = new ImageIcon(getClass().getResource("/imagens/casa-eventos.jpeg"));
 		imagem = new ImageIcon(imagem.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT));
 		label.setIcon(imagem);
 		frame.getContentPane().add(label);
@@ -78,48 +78,32 @@ public class TelaPrincipal {
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		mnVaga = new JMenu("Vaga");
-		mnVaga.addMouseListener(new MouseAdapter() {
+		mnCliente = new JMenu("Cliente");
+		mnCliente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new TelaVaga();
+				new TelaCliente();
 			}
 		});
-		menuBar.add(mnVaga);
+		menuBar.add(mnCliente);
 
-		mnCriar = new JMenu("Criar vagas");
-		mnCriar .addMouseListener(new MouseAdapter() {
+		mnEvento = new JMenu("Evento");
+		mnEvento .addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				try {
-					Fachada.inicializar();
-					Fachada.criarVagas(10);
-					Fachada.finalizar();
-					JOptionPane.showMessageDialog(frame, "vagas criadas", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-				}
-				catch(Exception ex) {
-					JOptionPane.showMessageDialog(frame, ex.getMessage());
-				}
+				new TelaEvento();
 			}
 		});
-		menuBar.add(mnCriar);
+		menuBar.add(mnEvento);
 		
-		mnApagar = new JMenu("Apagar vagas");
-		mnApagar .addMouseListener(new MouseAdapter() {
+		mnSenha = new JMenu("Senha");
+		mnSenha .addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				try {
-					Fachada.inicializar();
-					Fachada.apagarVagas();
-					Fachada.finalizar();
-					JOptionPane.showMessageDialog(frame, "vagas apagadas", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-				}
-				catch(Exception ex) {
-					JOptionPane.showMessageDialog(frame, ex.getMessage());
-				}
+				new TelaSenha();
 			}
 		});
-		menuBar.add(mnApagar);
+		menuBar.add(mnSenha);
 
 	}
 }

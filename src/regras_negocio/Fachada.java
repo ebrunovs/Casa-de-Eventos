@@ -172,7 +172,13 @@ public class Fachada {
 	}
 
 	public static void criarCliente(String cpf, String nome ) throws Exception{
-		DAO.begin();		
+		DAO.begin();
+		List<Cliente> lista = listarClientes();
+		for (Cliente c : lista) {
+			if (c.getCPF().equals(cpf)) {
+				throw new Exception("Cpf já cadastrado: " + cpf);
+			};
+		}
 		Cliente c = new Cliente(nome);
 		c.setCPF(cpf);
 		daoCliente.create(c);
@@ -324,6 +330,26 @@ public class Fachada {
 		return resultado;
 	}
 	
+	public static List<Cliente> consultarClientes(String caracteres) {
+		List<Cliente> result;
+		if (caracteres.isEmpty())
+			result = daoCliente.readAll();
+		else
+			result = daoCliente.readAll(caracteres);
+		return result;
+	}
+	
+	
+	public static List<Evento> consultarEventos(String caracteres) {
+		List<Evento> result;
+		if (caracteres.isEmpty())
+			result = daoEvento.readAll();
+		else
+			result = daoEvento.readAll(caracteres);
+		return result;
+	}
+
+
 	/**********************************************************
 	 * 
 	 * CONSULTAS AUXILIARES
