@@ -23,8 +23,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import modelo.Cliente;
-import modelo.Evento;
 import modelo.Senha;
 import regras_negocio.Fachada;
 
@@ -45,6 +43,8 @@ public class TelaSenha {
 	private JTextField buscaCodigo_textField;
 	private JTextField evento_textField;
 	private JTextField codigo_textField;
+	private JLabel cliente_label;
+	private JTextField cliente_textField;
 
 	/**
 	 * Create the application.
@@ -89,27 +89,7 @@ public class TelaSenha {
 			}
 		};
 		
-		// evento de selecao de uma linha da tabela
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					if (table.getSelectedRow() >= 0) {
-						// pegar o nome, data nascimento e apelidos da pessoa selecionada
-						String nome = (String) table.getValueAt(table.getSelectedRow(), 1);
-						Cliente p = Fachada.localizarCliente(nome);
-						String cpf = p.getCPF();
-						evento_textField.setText(nome);
-						codigo_textField.setText(cpf);
-					//	textField_3.setText(String.join(",", p.getSenhas()));						
-						label.setText("");
-					}
-				} catch (Exception erro) {
-					label.setText(erro.getMessage());
-				}
 
-			}
-		});
 
 		table.setGridColor(Color.BLACK);
 		table.setRequestFocusEnabled(false);
@@ -134,13 +114,13 @@ public class TelaSenha {
 						return;
 					}
 					// pegar o nome na linha selecionada
-					String nome = evento_textField.getText();
+					String cod = codigo_textField.getText();
 					Object[] options = { "Confirmar", "Cancelar" };
 					int escolha = JOptionPane.showOptionDialog(null,
-							"Esta opera��o apagar� o cliente: " + nome, "Alerta",
+							"Esta opera��o apagar� o cliente: " + cod, "Alerta",
 							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 					if (escolha == 0) {
-						Fachada.apagarCliente(nome);
+						Fachada.apagarSenha(cod);
 						label.setText("cliente excluido");
 						listagem(); // listagem
 					} else
@@ -183,31 +163,31 @@ public class TelaSenha {
 		evento_label = new JLabel("Evento:");
 		evento_label.setHorizontalAlignment(SwingConstants.LEFT);
 		evento_label.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		evento_label.setBounds(31, 239, 62, 14);
+		evento_label.setBounds(41, 264, 62, 14);
 		frame.getContentPane().add(evento_label);
 
 		evento_textField = new JTextField();
 		evento_textField.setFont(new Font("Dialog", Font.PLAIN, 12));
 		evento_textField.setColumns(10);
 		evento_textField.setBackground(Color.WHITE);
-		evento_textField.setBounds(101, 235, 165, 20);
+		evento_textField.setBounds(101, 260, 165, 20);
 		frame.getContentPane().add(evento_textField);
 
 		codigo_label = new JLabel("Codigo:");
 		codigo_label.setHorizontalAlignment(SwingConstants.LEFT);
 		codigo_label.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		codigo_label.setBounds(31, 264, 62, 14);
+		codigo_label.setBounds(31, 239, 62, 14);
 		frame.getContentPane().add(codigo_label);
 
 		codigo_textField = new JTextField();
 		codigo_textField.setFont(new Font("Dialog", Font.PLAIN, 12));
 		codigo_textField.setColumns(10);
-		codigo_textField.setBounds(101, 260, 86, 20);
+		codigo_textField.setBounds(101, 234, 165, 20);
 		frame.getContentPane().add(codigo_textField);
 		
 
 		criar_button = new JButton("Criar");
-		criar_button.setToolTipText("cadastrar novo cliente");
+		criar_button.setToolTipText("cadastrar nova senha");
 		criar_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -215,11 +195,13 @@ public class TelaSenha {
 						label.setText("nome vazio");
 						return;
 					}
-					String nome = evento_textField.getText().trim();
-					String cpf = codigo_textField.getText().trim();
-					Fachada.criarCliente(cpf, nome);
+					String evento = evento_textField.getText().trim();
+					String codigo = codigo_textField.getText().trim();
+					String cliente = cliente_textField.getText().trim();
+
+					Fachada.criarSenha(codigo,evento,cliente);
 			
-					label.setText("cliente cadastrado");
+					label.setText("Senha cadastrada");
 					listagem();
 				} catch (Exception ex) {
 					label.setText(ex.getMessage());
@@ -230,28 +212,6 @@ public class TelaSenha {
 		criar_button.setBounds(21, 340, 62, 23);
 		frame.getContentPane().add(criar_button);
 
-		atualizar_button = new JButton("Atualizar");
-		atualizar_button.setToolTipText("atualizar cliente ");
-		atualizar_button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					if (evento_textField.getText().trim().isEmpty()) {
-						label.setText("nome vazio");
-						return;
-					}
-					String nome = evento_textField.getText();
-					String cpf = codigo_textField.getText();
-					Fachada.alterarCPFCliente(nome, cpf);
-					label.setText("cliente atualizado");
-					listagem();
-				} catch (Exception ex2) {
-					label.setText(ex2.getMessage());
-				}
-			}
-		});
-		atualizar_button.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		atualizar_button.setBounds(82, 340, 87, 23);
-		frame.getContentPane().add(atualizar_button);
 
 		busca_label = new JLabel("Texto:");
 		busca_label.setBounds(21, 32, 46, 14);
@@ -267,13 +227,22 @@ public class TelaSenha {
 		});
 		limpar_button.setBounds(276, 234, 89, 23);
 		frame.getContentPane().add(limpar_button);
+		
+		cliente_label = new JLabel("Cliente: ");
+		cliente_label.setBounds(41, 293, 45, 13);
+		frame.getContentPane().add(cliente_label);
+		
+		cliente_textField = new JTextField();
+		cliente_textField.setBounds(101, 290, 165, 19);
+		frame.getContentPane().add(cliente_textField);
+		cliente_textField.setColumns(10);
 
 		frame.setVisible(true);
 	}
 
 	public void listagem() {
 		try {
-			List<Cliente> lista = Fachada.consultarClientes(buscaCodigo_textField.getText());
+			List<Senha> lista = Fachada.consultarSenhas(buscaCodigo_textField.getText());
 
 			// objeto model contem todas as linhas e colunas da tabela
 			DefaultTableModel model = new DefaultTableModel();
@@ -281,33 +250,28 @@ public class TelaSenha {
 
 			// criar as colunas (0,1,2) da tabela
 			model.addColumn("Id");
-			model.addColumn("Nome");
-			model.addColumn("cpf");
-			model.addColumn("eventos");
+			model.addColumn("Código");
+			model.addColumn("Evento");
+			model.addColumn("Cliente");
+
 			
 
 			// criar as linhas da tabela
 			
-			for (Cliente c : lista) {
-				String senhas ="";
-				for (Senha s : c.getSenhas()) {
-					senhas += s+" ";
-				}
-
-				model.addRow(new Object[] { c.getId(), c.getNome(), c.getCPF(), senhas});
+			for (Senha s : lista) {				
+				model.addRow(new Object[] { s.getId(), s.getCodigo(), s.getEvento().getNome(), s.getCliente().getNome()});
 			}
 			tip_label.setText("resultados: " + lista.size() + " pessoas   - selecione uma linha para editar");
 
 			// redimensionar a coluna 0,3 e 4
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // desabilita
 			table.getColumnModel().getColumn(0).setMaxWidth(40); // coluna id
-			table.getColumnModel().getColumn(3).setMinWidth(200); // coluna dos apelidos
-			table.getColumnModel().getColumn(4).setMinWidth(200); // coluna dos telefones
+			table.getColumnModel().getColumn(2).setMinWidth(200); // coluna dos apelidos
+			table.getColumnModel().getColumn(3).setMinWidth(200); // coluna dos telefones
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS); // desabilita
 
 		} catch (Exception erro) {
 			label.setText(erro.getMessage());
 		}
 	}
-
 }

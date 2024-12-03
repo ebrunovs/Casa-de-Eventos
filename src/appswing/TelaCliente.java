@@ -41,9 +41,7 @@ public class TelaCliente {
 	private JLabel tip_label;
 	private JLabel nome_label;
 	private JLabel cpf_label;
-	private JLabel label_5;
 	private JLabel busca_label;
-	private JLabel label_7;
 	private JTextField buscaNome_textField;
 	private JTextField nome_textField;
 	private JTextField cpf_textField;
@@ -293,18 +291,20 @@ public class TelaCliente {
 			for (Cliente c : lista) {
 				String senhas ="";
 				for (Senha s : c.getSenhas()) {
-					senhas += s+" ";
+					senhas += s.getCodigo()+" ";
 				}
 
 				model.addRow(new Object[] { c.getId(), c.getNome(), c.getCPF(), senhas});
+				
 			}
-			tip_label.setText("resultados: " + lista.size() + " pessoas   - selecione uma linha para editar");
+			tip_label.setText("resultados: " + lista.size() + " Cliente   - selecione uma linha para editar");
 
 			// redimensionar a coluna 0,3 e 4
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // desabilita
 			table.getColumnModel().getColumn(0).setMaxWidth(40); // coluna id
-			table.getColumnModel().getColumn(3).setMinWidth(200); // coluna dos apelidos
-			table.getColumnModel().getColumn(4).setMinWidth(200); // coluna dos telefones
+			table.getColumnModel().getColumn(1).setMinWidth(200); // coluna dos apelidos
+			table.getColumnModel().getColumn(2).setMinWidth(200); // coluna dos telefones
+			table.getColumnModel().getColumn(3).setMinWidth(200); // coluna dos telefones
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS); // desabilita
 
 		} catch (Exception erro) {

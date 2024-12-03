@@ -11,16 +11,13 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-
-import regras_negocio.Fachada;
 
 public class TelaPrincipal {
 	private JFrame frame;
@@ -28,6 +25,7 @@ public class TelaPrincipal {
 	private JLabel label;
 	private JMenu mnEvento;
 	private JMenu mnSenha;
+	private JMenu mnConsultar;
 
 	/**
 	 * Launch the application.
@@ -104,6 +102,15 @@ public class TelaPrincipal {
 			}
 		});
 		menuBar.add(mnSenha);
-
+		
+		mnConsultar = new JMenu("Consultar");
+		mnSenha .addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new TelaConsultas();
+			}
+		});
+		menuBar.add(mnConsultar);
+		
 	}
 }

@@ -321,10 +321,10 @@ public class TelaEvento{
 			for (Evento ev : lista) {
 				String senhas ="";
 				for (Senha s : ev.getSenhas()) {
-					senhas += s+" ";
+					senhas += s.getCodigo()+" ";
 				}
 
-				model.addRow(new Object[] { ev.getId(), ev.getNome(), ev.getData(), senhas});
+				model.addRow(new Object[] { ev.getId(), ev.getNome(), ev.getData(),ev.getPreco(), senhas});
 			}
 			tip_label.setText("resultados: " + lista.size() + " eventos   - selecione uma linha para editar");
 

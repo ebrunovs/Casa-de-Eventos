@@ -252,7 +252,7 @@ public class Fachada {
 		}
 		if (codigo.isEmpty()) {
 			DAO.rollback();
-			throw new Exception("criar telefone - senha vazia:" + codigo);
+			throw new Exception("Criar Senha - senha vazia:" + codigo);
 		}
 		for(Senha senha : listarSenhas()) {
 			// Senha so pode ser criada se não houver uma mesma no cliente X
@@ -341,11 +341,21 @@ public class Fachada {
 	
 	
 	public static List<Evento> consultarEventos(String caracteres) {
-		List<Evento> result;
+		List<Evento> result = new ArrayList<>();
 		if (caracteres.isEmpty())
 			result = daoEvento.readAll();
 		else
-			result = daoEvento.readAll(caracteres);
+			result.add(daoEvento.read(caracteres));
+		return result;
+	}
+	
+	
+	public static List<Senha> consultarSenhas(String senha) {
+		List<Senha> result;
+		if (senha.isEmpty())
+			result = daoSenha.readAll();
+		else
+			result = daoSenha.readAll();
 		return result;
 	}
 
