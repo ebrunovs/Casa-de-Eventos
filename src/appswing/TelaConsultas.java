@@ -1,43 +1,241 @@
 package appswing;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
-public class TelaConsultas extends JFrame {
+import modelo.Cliente;
+import modelo.Evento;
+import modelo.Senha;
+import regras_negocio.Fachada;
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+public class TelaConsultas {
+	private JDialog frame;
+	private JTable table;
+	private JScrollPane scrollPane;
+	private JButton btnBuscarClienteEvento;
+	private JLabel label;
+	private JLabel cliente_label;
+	private JTextField cliente_nome_textField;
+	private JTextField data_textField;
+	private JTextField senhas_qtde_textField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaConsultas frame = new TelaConsultas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public TelaConsultas() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 637, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		initialize();
 	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JDialog();
+		frame.setModal(true); // janela modal
+
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				Fachada.inicializar();
+				
+			}
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				Fachada.finalizar();
+			}
+		});
+		frame.setTitle("Consultas");
+		frame.setBounds(100, 100, 744, 428);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 130, 685, 155);
+		frame.getContentPane().add(scrollPane);
+
+		table = new JTable() {
+			// proibir alteracao de celulas
+			public boolean isCellEditable(int rowIndex, int vColIndex) {
+				return false;
+			}
+		};
+		
+		// evento de selecao de uma linha da tabela
+		
+
+		table.setGridColor(Color.BLACK);
+		table.setRequestFocusEnabled(false);
+		table.setFocusable(false);
+		table.setBackground(Color.WHITE);
+		table.setFillsViewportHeight(true);
+		table.setRowSelectionAllowed(true);
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		scrollPane.setViewportView(table);
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setShowGrid(true);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+		label = new JLabel("");
+		label.setForeground(Color.RED);
+		label.setBounds(21, 372, 607, 14);
+		frame.getContentPane().add(label);
+
+		btnBuscarClienteEvento = new JButton("Buscar eventos do cliente");
+		btnBuscarClienteEvento.setBackground(Color.LIGHT_GRAY);
+		btnBuscarClienteEvento.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        try {
+		            String nome = cliente_nome_textField.getText();
+		            List<Evento> eventos = Fachada.eventosCliente(nome);
+		            
+		            DefaultTableModel model = new DefaultTableModel();
+		            table.setModel(model);
+
+		            model.addColumn("Id Evento");
+		            model.addColumn("Nome Evento");
+		            model.addColumn("Data Evento");
+
+		            for (Evento evento : eventos) {
+		                model.addRow(new Object[] { 
+		                    evento.getId(), 
+		                    evento.getNome(), 
+		                    evento.getData() 
+		                });
+		            }
+
+		        } catch (Exception ex) {
+		            label.setText(ex.getMessage());
+		        }
+		    }
+		});
+
+		btnBuscarClienteEvento.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnBuscarClienteEvento.setBounds(209, 27, 250, 23);
+		frame.getContentPane().add(btnBuscarClienteEvento);
+
+		cliente_nome_textField = new JTextField();
+		cliente_nome_textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		cliente_nome_textField.setColumns(10);
+		cliente_nome_textField.setBounds(93, 28, 106, 20);
+		frame.getContentPane().add(cliente_nome_textField);
+
+		cliente_label = new JLabel("Cliente:");
+		cliente_label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cliente_label.setBounds(37, 29, 50, 16);
+		frame.getContentPane().add(cliente_label);
+		
+		JLabel data_label = new JLabel("Data:");
+		data_label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		data_label.setBounds(37, 60, 50, 16);
+		frame.getContentPane().add(data_label);
+		
+		data_textField = new JTextField();
+		data_textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		data_textField.setColumns(10);
+		data_textField.setBounds(93, 59, 106, 20);
+		frame.getContentPane().add(data_textField);
+		
+		JButton btnBuscarDataSenhas = new JButton("Buscar senhas do evento na data");
+		btnBuscarDataSenhas.setBackground(Color.LIGHT_GRAY);
+		btnBuscarDataSenhas.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        try {
+		            String data = data_textField.getText();
+		            List<Senha> senhas = Fachada.senhasPorData(data);
+		            
+		            DefaultTableModel model = new DefaultTableModel();
+		            table.setModel(model);
+
+		            model.addColumn("Id Senha");
+		            model.addColumn("Código Senha");
+
+		            for (Senha senha : senhas) {
+		                model.addRow(new Object[] { 
+		                    senha.getId(), 
+		                    senha.getCodigo(), 
+		                    
+		                });
+		            }
+
+		        } catch (Exception ex) {
+		            label.setText(ex.getMessage());
+		        }
+		    }
+		});
+
+		btnBuscarDataSenhas.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnBuscarDataSenhas.setBounds(209, 58, 250, 23);
+		frame.getContentPane().add(btnBuscarDataSenhas);
+		
+		JLabel senhas_qtde_label = new JLabel("Senha:");
+		senhas_qtde_label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		senhas_qtde_label.setBounds(37, 88, 50, 16);
+		frame.getContentPane().add(senhas_qtde_label);
+		
+		senhas_qtde_textField = new JTextField();
+		senhas_qtde_textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		senhas_qtde_textField.setColumns(10);
+		senhas_qtde_textField.setBounds(93, 87, 106, 20);
+		frame.getContentPane().add(senhas_qtde_textField);
+		
+		JButton btnEventosSenhas = new JButton("Buscar quais eventos tem mais senhas ");
+		btnEventosSenhas.setBackground(Color.LIGHT_GRAY);
+		btnEventosSenhas.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        try {
+		            int qtdeSenhas = Integer.parseInt(senhas_qtde_textField.getText());
+		            List<Evento> eventos = Fachada.senhasPorEvento(qtdeSenhas);
+
+		            DefaultTableModel model = new DefaultTableModel();
+		            table.setModel(model);
+
+		            model.addColumn("Id Evento");
+		            model.addColumn("Nome Evento");
+		            model.addColumn("Qtd. Senhas");
+
+		            for (Evento evento : eventos) {
+		                model.addRow(new Object[] { 
+		                    evento.getId(), 
+		                    evento.getNome(), 
+		                    evento.getSenhas().size() 
+		                });
+		            }
+
+		        } catch (Exception ex) {
+		            label.setText(ex.getMessage());
+		        }
+		    }
+		});
+
+		btnEventosSenhas.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnEventosSenhas.setBounds(209, 86, 250, 23);
+		frame.getContentPane().add(btnEventosSenhas);
+
+		frame.setVisible(true);
+	}
+
 
 }

@@ -104,7 +104,7 @@ public class TelaPrincipal {
 		menuBar.add(mnSenha);
 		
 		mnConsultar = new JMenu("Consultar");
-		mnSenha .addMouseListener(new MouseAdapter() {
+		mnConsultar .addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				new TelaConsultas();
