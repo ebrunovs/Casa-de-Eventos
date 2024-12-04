@@ -41,9 +41,7 @@ public class TelaEvento{
 	private JLabel tip_label;
 	private JLabel nome_label;
 	private JLabel preco_label;
-	private JLabel label_5;
 	private JLabel busca_label;
-	private JLabel label_7;
 	private JTextField buscaNome_textField;
 	private JTextField nome_textField;
 	private JTextField preco_textField;

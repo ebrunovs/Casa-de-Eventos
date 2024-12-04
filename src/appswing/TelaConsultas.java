@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
@@ -14,16 +12,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import modelo.Cliente;
 import modelo.Evento;
 import modelo.Senha;
 import regras_negocio.Fachada;
@@ -33,7 +28,6 @@ public class TelaConsultas {
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JButton btnBuscarClienteEvento;
-	private JLabel label;
 	private JLabel cliente_label;
 	private JTextField cliente_nome_textField;
 	private JTextField data_textField;
@@ -97,11 +91,11 @@ public class TelaConsultas {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setShowGrid(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
-		label = new JLabel("");
-		label.setForeground(Color.RED);
-		label.setBounds(21, 372, 607, 14);
-		frame.getContentPane().add(label);
+		
+		JLabel errormsgmLabel = new JLabel("");
+		errormsgmLabel.setForeground(Color.RED);
+		errormsgmLabel.setBounds(21, 311, 416, 23);
+		frame.getContentPane().add(errormsgmLabel);
 
 		btnBuscarClienteEvento = new JButton("Buscar eventos do cliente");
 		btnBuscarClienteEvento.setBackground(Color.LIGHT_GRAY);
@@ -109,7 +103,11 @@ public class TelaConsultas {
 		    public void actionPerformed(ActionEvent e) {
 		        try {
 		            String nome = cliente_nome_textField.getText();
+		            if(nome.equals(""))
+		            	throw new Exception("Campo cliente vazio.");
 		            List<Evento> eventos = Fachada.eventosCliente(nome);
+		            if(eventos.isEmpty())
+		            	throw new Exception("O cliente não possui eventos.");
 		            
 		            DefaultTableModel model = new DefaultTableModel();
 		            table.setModel(model);
@@ -127,7 +125,7 @@ public class TelaConsultas {
 		            }
 
 		        } catch (Exception ex) {
-		            label.setText(ex.getMessage());
+		        	errormsgmLabel.setText(ex.getMessage());
 		        }
 		    }
 		});
@@ -164,8 +162,11 @@ public class TelaConsultas {
 		    public void actionPerformed(ActionEvent e) {
 		        try {
 		            String data = data_textField.getText();
+		            if(data.equals(""))
+		            	throw new Exception("Campo data vazio.");
 		            List<Senha> senhas = Fachada.senhasPorData(data);
-		            
+		            if(senhas == null)
+		            	throw new Exception("Não existe senhas para esta data.");
 		            DefaultTableModel model = new DefaultTableModel();
 		            table.setModel(model);
 
@@ -181,7 +182,7 @@ public class TelaConsultas {
 		            }
 
 		        } catch (Exception ex) {
-		            label.setText(ex.getMessage());
+		        	errormsgmLabel.setText(ex.getMessage());
 		        }
 		    }
 		});
@@ -206,8 +207,15 @@ public class TelaConsultas {
 		btnEventosSenhas.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        try {
+		            if (senhas_qtde_textField.getText().trim().isEmpty()) {
+		                throw new Exception("Campo quantidade de Senhas vazio.");
+		            }
+		        	
 		            int qtdeSenhas = Integer.parseInt(senhas_qtde_textField.getText());
+		            
 		            List<Evento> eventos = Fachada.senhasPorEvento(qtdeSenhas);
+		            if(eventos.isEmpty())
+		            	throw new Exception("O evento não possui senhas.");
 
 		            DefaultTableModel model = new DefaultTableModel();
 		            table.setModel(model);
@@ -225,7 +233,7 @@ public class TelaConsultas {
 		            }
 
 		        } catch (Exception ex) {
-		            label.setText(ex.getMessage());
+		        	errormsgmLabel.setText(ex.getMessage());
 		        }
 		    }
 		});
@@ -236,6 +244,4 @@ public class TelaConsultas {
 
 		frame.setVisible(true);
 	}
-
-
 }

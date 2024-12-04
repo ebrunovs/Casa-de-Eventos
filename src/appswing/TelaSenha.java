@@ -34,7 +34,6 @@ public class TelaSenha {
 	private JButton criar_button;
 	private JButton limpar_button;
 	private JButton apagar_button;
-	private JButton atualizar_button;
 	private JLabel label;
 	private JLabel tip_label;
 	private JLabel evento_label;

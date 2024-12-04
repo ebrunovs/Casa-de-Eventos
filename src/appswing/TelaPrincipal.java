@@ -1,9 +1,4 @@
 package appswing;
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * Programa��o Orientada a Objetos
- * Prof. Fausto Maranh�o Ayres
- **********************************/
 
 import java.awt.EventQueue;
 import java.awt.Font;

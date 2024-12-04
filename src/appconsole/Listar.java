@@ -30,7 +30,7 @@ public class Listar {
 			
 			
 			System.out.println("\n*** Listagem de Senhas por Data:");
-			System.out.println(Fachada.senhasPorData("01/01/2025"));
+			System.out.println(Fachada.senhasPorData("01/02/2025"));
 			
 			System.out.println("\n*** Listagem de Senhas por Evento:");
 			System.out.println(Fachada.senhasPorEvento(3));
