@@ -46,7 +46,6 @@ public class TelaEvento{
 	private JTextField nome_textField;
 	private JTextField preco_textField;
 	private JTextField data_textField;
-	private JTextField cliente_textField;
 
 	/**
 	 * Create the application.
@@ -139,7 +138,7 @@ public class TelaEvento{
 					String nome = nome_textField.getText();
 					Object[] options = { "Confirmar", "Cancelar" };
 					int escolha = JOptionPane.showOptionDialog(null,
-							"Esta opera��o apagar� o evento: " + nome, "Alerta",
+							"Esta operacao apaga o evento: " + nome, "Alerta",
 							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 					if (escolha == 0) {
 						Fachada.apagarEvento(nome);
@@ -281,19 +280,6 @@ public class TelaEvento{
 		data_label.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		data_label.setBounds(31, 291, 62, 14);
 		frame.getContentPane().add(data_label);
-		
-		cliente_textField = new JTextField();
-		cliente_textField.setFont(new Font("Dialog", Font.PLAIN, 12));
-		cliente_textField.setColumns(10);
-		cliente_textField.setBackground(Color.WHITE);
-		cliente_textField.setBounds(329, 287, 165, 20);
-		frame.getContentPane().add(cliente_textField);
-		
-		JLabel nome_cliente_label_ = new JLabel("Cliente:");
-		nome_cliente_label_.setHorizontalAlignment(SwingConstants.LEFT);
-		nome_cliente_label_.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		nome_cliente_label_.setBounds(252, 292, 62, 14);
-		frame.getContentPane().add(nome_cliente_label_);
 
 		frame.setVisible(true);
 	}

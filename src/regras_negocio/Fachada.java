@@ -44,6 +44,14 @@ public class Fachada {
 		return e;
 	}
 	
+	public static Senha localizarSenha(String cod) throws Exception {
+		Senha s = daoSenha.read(cod);
+		if (s == null) {
+			throw new Exception("Senha inexistente:" + cod);
+		}
+		return s;
+	}
+	
 	public static void criarEvento(String nome, String data, double preco) throws  Exception{
 		DAO.begin();
 		try {
@@ -162,15 +170,33 @@ public class Fachada {
 			throw new Exception("Apagar Evento - nome inexistente:" + nomeEven);
 		}
 
-		for (Senha s : e.getSenhas()) {
-			daoSenha.delete(s); // deletar o telefone orfao
-		}
+		 // Faz uma cópia da lista de senhas
+	    List<Senha> senhas = new ArrayList<>(e.getSenhas());
 
-		 daoEvento.delete(e);
-		 DAO.commit();
-		
+	    for (Senha s : senhas) {
+	        Cliente c = s.getCliente();
+
+	        // Remove a senha do cliente e atualiza
+	        e.remover(s);
+	        daoEvento.update(e);
+
+	        // Remove a senha do evento e atualiza
+	        if (c != null) {
+	            c.remover(s);
+	            daoCliente.update(c);
+	        }
+
+	        // Apaga a senha do banco
+	        daoSenha.delete(s); 
+	    }
+
+	    // Após remover todas as associações, exclui o cliente
+	    daoEvento.delete(e);
+	    DAO.commit();    
 	}
 
+	
+	
 	public static void criarCliente(String cpf, String nome ) throws Exception{
 		DAO.begin();
 		List<Cliente> lista = listarClientes();
@@ -224,14 +250,31 @@ public class Fachada {
 			throw new Exception("Apagar Cliente - nome inexistente:" + nomeCli);
 		}
 
-		for (Senha s : c.getSenhas()) {
-			daoSenha.delete(s); // deletar o telefone orfao
-		}
+		 // Faz uma cópia da lista de senhas
+	    List<Senha> senhas = new ArrayList<>(c.getSenhas());
 
-		 daoCliente.delete(c);
-		 DAO.commit();
-		
+	    for (Senha s : senhas) {
+	        Evento e = s.getEvento();
+
+	        // Remove a senha do cliente e atualiza
+	        c.remover(s);
+	        daoCliente.update(c);
+
+	        // Remove a senha do evento e atualiza
+	        if (e != null) {
+	            e.remover(s);
+	            daoEvento.update(e);
+	        }
+
+	        // Apaga a senha do banco
+	        daoSenha.delete(s); 
+	    }
+
+	    // Após remover todas as associações, exclui o cliente
+	    daoCliente.delete(c);
+	    DAO.commit();    
 	}
+
 	
 	public static void criarSenha(String codigo, String evento, String cliente) throws Exception{
 		DAO.begin();
@@ -287,8 +330,9 @@ public class Fachada {
 		Evento e = s.getEvento();
 		c.remover(s);
 		e.remover(s);
-		s.setCliente(null);
-		s.setEvento(null);
+		daoSenha.delete(s);
+		daoCliente.update(c);
+		daoEvento.update(e);
 		DAO.commit();
 	}
 	

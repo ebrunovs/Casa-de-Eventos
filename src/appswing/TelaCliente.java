@@ -137,7 +137,7 @@ public class TelaCliente {
 					String nome = nome_textField.getText();
 					Object[] options = { "Confirmar", "Cancelar" };
 					int escolha = JOptionPane.showOptionDialog(null,
-							"Esta opera��o apagar� o cliente: " + nome, "Alerta",
+							"Esta operacao apaga o cliente: " + nome, "Alerta",
 							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 					if (escolha == 0) {
 						Fachada.apagarCliente(nome);

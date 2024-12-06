@@ -23,6 +23,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.Cliente;
+import modelo.Evento;
 import modelo.Senha;
 import regras_negocio.Fachada;
 
@@ -88,7 +90,26 @@ public class TelaSenha {
 			}
 		};
 		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					if (table.getSelectedRow() >= 0) {
+						// pegar o nome, data nascimento e apelidos da pessoa selecionada
+						String codigo = (String) table.getValueAt(table.getSelectedRow(), 1);
+						Senha sen = Fachada.localizarSenha(codigo);
+						String ev = sen.getEvento().getNome();
+						String cli = sen.getCliente().getNome();
+						evento_textField.setText(ev);
+						codigo_textField.setText(codigo);
+						cliente_textField.setText(cli);
+					}
+				} catch (Exception erro) {
+					label.setText(erro.getMessage());
+				}
 
+			}
+		});
 
 		table.setGridColor(Color.BLACK);
 		table.setRequestFocusEnabled(false);
@@ -108,19 +129,15 @@ public class TelaSenha {
 		apagar_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if (evento_textField.getText().isEmpty()) {
-						label.setText("nome vazio");
-						return;
-					}
 					// pegar o nome na linha selecionada
 					String cod = codigo_textField.getText();
 					Object[] options = { "Confirmar", "Cancelar" };
 					int escolha = JOptionPane.showOptionDialog(null,
-							"Esta opera��o apagar� o cliente: " + cod, "Alerta",
+							"Esta operacao apaga a senha: " + cod, "Alerta",
 							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 					if (escolha == 0) {
 						Fachada.apagarSenha(cod);
-						label.setText("cliente excluido");
+						label.setText("senha excluida");
 						listagem(); // listagem
 					} else
 						label.setText("exclus�o cancelada");
