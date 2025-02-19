@@ -1,17 +1,37 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Evento {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 	private String nome;
 	private String data;
 	private double preco;
-	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Evento(String nome) {
+	@OneToMany(mappedBy="evento", cascade= {CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval = true)
+	private List<Senha> senhas = new ArrayList<>();
+	
+	
+	public Evento() {
+		
+	}
+	
+	public Evento(String nome, String data, double preco) {
 		super();
 		this.nome = nome;
+		this.data = data;
+		this.preco = preco;
 	}
 
 	public int getId() {
@@ -46,16 +66,18 @@ public class Evento {
 		this.preco = preco;
 	}
 
-	public ArrayList<Senha> getSenhas() {
+	public List<Senha> getSenhas() {
 		return senhas;
 	}
 
 	public void adicionar(Senha s){
 		senhas.add(s);
+		s.setEvento(this);
 	}
 	
 	public void remover(Senha s){
 		senhas.remove(s);
+		s.setEvento(null);
 	}
 	
 	public Senha localizar(int id){
@@ -65,6 +87,8 @@ public class Evento {
 		}
 		return null;
 	}
+	
+	
 	
 	@Override
 	public String toString() {

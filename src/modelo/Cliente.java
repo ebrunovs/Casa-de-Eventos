@@ -1,15 +1,34 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Cliente {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 	private String CPF;
 	private String nome;
-	private ArrayList<Senha> senhas = new ArrayList<>();
 	
-	public Cliente(String nome) {
+	@OneToMany(mappedBy="cliente", cascade= {CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval = true)
+	private List<Senha> senhas = new ArrayList<>();
+	
+	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String cpf, String nome) {
 		super();
+		this.CPF = cpf;
 		this.nome = nome;
 	}
 	
@@ -37,15 +56,17 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public ArrayList<Senha> getSenhas() {
+	public List<Senha> getSenhas() {
 		return senhas;
 	}
 
 	public void adicionar(Senha s){
 		senhas.add(s);
+		s.setCliente(this);
 	}
 	public void remover(Senha s){
 		senhas.remove(s);
+		s.setCliente(null);
 	}
 	public Senha localizar(int id){
 		for(Senha s : senhas){

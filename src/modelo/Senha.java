@@ -1,14 +1,32 @@
 package modelo;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Senha {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 	private String codigo;
+	
+	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
 	private Evento evento;
+	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
 	private Cliente cliente;
+	
+	public Senha() {
+		
+	}
 	
 	public Senha(String codigo) {
 		super();
 		this.codigo = codigo;
+
 	}
 
 	public int getId() {
@@ -49,5 +67,7 @@ public class Senha {
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
+	
+	
 	
 }
