@@ -1,27 +1,30 @@
-15:40:30,508 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-15:40:30,636  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-15:40:30,703  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
-15:40:30,744 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-15:40:30,745  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-15:40:30,982  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-15:40:31,316  INFO pooling:157 - HHH10001005: Database info:
+20:51:19,312 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+20:51:19,407  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+20:51:19,451  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
+20:51:19,478 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+20:51:19,479  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+20:51:19,635  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+20:51:19,847  INFO pooling:157 - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
 	Database driver: org.postgresql.Driver
-	Database version: 16.4
+	Database version: 17.4
 	Autocommit mode: false
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-15:40:32,438  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-15:40:32,471  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@16ee9aa7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-15:40:32,646 DEBUG Util:27 - -------- conectou banco biblioteca
-15:40:33,027 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento e1_0 join Senha s1_0 on e1_0.id=s1_0.evento_id join Cliente c1_0 on c1_0.id=s1_0.cliente_id where c1_0.nome like 'Bruno Eneas' escape ''
-15:40:33,075 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-15:40:33,077 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-15:40:33,086 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-15:40:33,087 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-15:40:33,089 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-15:40:33,090 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-15:40:33,110 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha s1_0 join Evento e1_0 on e1_0.id=s1_0.evento_id where e1_0.data='11/12/2025'
-15:40:33,216 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento e1_0 where (select count(*) from Senha s1_0 where e1_0.id=s1_0.evento_id)>4
-15:40:33,222 DEBUG Util:37 - -------- desconectou banco
+20:51:20,593  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+20:51:20,612  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4e424582] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+20:51:20,747 DEBUG Util:27 - -------- conectou banco biblioteca
+20:51:21,003 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento e1_0 join Senha s1_0 on e1_0.id=s1_0.evento_id join Cliente c1_0 on c1_0.id=s1_0.cliente_id where c1_0.nome like 'Bruno Eneas' escape ''
+20:51:21,030 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+20:51:21,031 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+20:51:21,037 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+20:51:21,037 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+20:51:21,039 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha s1_0 left join Cliente c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+20:51:21,039 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+20:51:21,053 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha s1_0 join Evento e1_0 on e1_0.id=s1_0.evento_id where e1_0.data='11/12/2025'
+20:51:21,133 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento e1_0 where (select count(*) from Senha s1_0 where e1_0.id=s1_0.evento_id)>4
+20:51:21,152 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha s1_0 join Evento e1_0 on e1_0.id=s1_0.evento_id where e1_0.nome='Casamento' and s1_0.codigo='12345'
+20:51:21,155 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha s1_0 join Evento e1_0 on e1_0.id=s1_0.evento_id where e1_0.nome='Casamento' and s1_0.codigo='245654'
+20:51:21,160 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente c1_0 join Senha s1_0 on c1_0.id=s1_0.cliente_id join Evento e1_0 on e1_0.id=s1_0.evento_id where e1_0.nome='Casamento'
+20:51:21,163 DEBUG Util:37 - -------- desconectou banco
