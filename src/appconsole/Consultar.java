@@ -1,8 +1,3 @@
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * Prof. Fausto Maranh�o Ayres
- **********************************/
-
 package appconsole;
 
 
@@ -84,31 +79,6 @@ public class Consultar {
 			clientes = query2.getResultList();
 			for (Cliente c : clientes)
 			    System.out.println(c.getNome());
-			
-//
-//			System.out.println("\n---qual a turma do aluno 20211370002 (jose)?");
-//			jpql = "select t from Turma t join t.alunos a where a.matricula = '20211370002' ";
-//			//jpql = "select a.turma from Aluno a where a.matricula = '20211370002' ";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
-//			
-//			
-//			System.out.println("\n---quais as turmas que tem dois alunos");
-//			jpql = "select t from Turma t where size(t.alunos) = 2";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
-//			
-//			System.out.println("\n---quais as turmas que nao tem alunos");
-//			jpql = "select t from Turma t where size(t.alunos) = 0";
-//			//jpql = "select t from Turma t where t.alunos is Empty";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
 			
 		} catch (Exception e) {
 			System.out.println("excecao=" + e.getMessage());
