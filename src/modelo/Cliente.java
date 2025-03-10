@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Cliente {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String CPF;
 	private String nome;

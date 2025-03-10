@@ -1,8 +1,3 @@
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * Prof. Fausto Maranh�o Ayres
- **********************************/
-
 package appconsole;
 
 
@@ -53,30 +48,37 @@ public class Consultar {
 			eventos = query1.getResultList();
 			for (Evento e : eventos)
 				System.out.println(e);
-//
-//			System.out.println("\n---qual a turma do aluno 20211370002 (jose)?");
-//			jpql = "select t from Turma t join t.alunos a where a.matricula = '20211370002' ";
-//			//jpql = "select a.turma from Aluno a where a.matricula = '20211370002' ";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
-//			
-//			
-//			System.out.println("\n---quais as turmas que tem dois alunos");
-//			jpql = "select t from Turma t where size(t.alunos) = 2";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
-//			
-//			System.out.println("\n---quais as turmas que nao tem alunos");
-//			jpql = "select t from Turma t where size(t.alunos) = 0";
-//			//jpql = "select t from Turma t where t.alunos is Empty";
-//			query2 = manager.createQuery(jpql, Turma.class);
-//			turmas = query2.getResultList();
-//			for (Turma t : turmas)
-//				System.out.println(t);
+			
+			System.out.println("\n---Senha ja existe no evento? (CASO NEGATIVO) ");
+			jpql = "select s from Senha s " +
+				   "join s.evento e " +
+			       "where e.nome = 'Casamento' and s.codigo = '12345'";
+			query3 = manager.createQuery(jpql, Senha.class);
+			senhas = query3.getResultList();
+			if (senhas.isEmpty())
+			    System.out.println("Senha não existe no evento");
+			else
+			    System.out.println("Senha já existe no evento");
+			
+			System.out.println("\n---Senha ja existe no evento? (CASO POSITIVO)");
+			jpql = "select s from Senha s " +
+				   "join s.evento e " +
+			       "where e.nome = 'Casamento' and s.codigo = '245654'";
+			query3 = manager.createQuery(jpql, Senha.class);
+			senhas = query3.getResultList();
+			if (senhas.isEmpty())
+			    System.out.println("Senha não existe no evento");
+			else
+			    System.out.println("Senha já existe no evento");
+			
+			System.out.println("\n---Lista de convidados para o Casamento: ");
+			jpql = "select c from Cliente c " +
+			       "join c.senhas s join s.evento e " +
+			       "where e.nome = 'Casamento'";
+			query2 = manager.createQuery(jpql, Cliente.class);
+			clientes = query2.getResultList();
+			for (Cliente c : clientes)
+			    System.out.println(c.getNome());
 			
 		} catch (Exception e) {
 			System.out.println("excecao=" + e.getMessage());

@@ -1,52 +1,46 @@
 package appconsole;
 
 
-import java.util.List;
-
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 import modelo.Cliente;
 import modelo.Evento;
 import modelo.Senha;
+import regras_negocio.Fachada;
 
 
 public class Listar {
-	
-	private EntityManager manager;
 
 	public Listar(){
 		try {
-			
-			manager = Util.conectarBanco();
+			Fachada.inicializar();
+
 			System.out.println("*** Listagem de Eventos:");
-			
-			TypedQuery<Evento> query = manager.createQuery("select e from Evento  e order by e.id", Evento.class);
-			List<Evento> resultados1 = query.getResultList();
-			for (Evento e : resultados1) {
+			for(Evento e : Fachada.listarEventos())		
 				System.out.println(e);
-			}
 
 			System.out.println("\n*** Listagem de Clientes:");
-			TypedQuery<Cliente> query2 = manager.createQuery("select c from Cliente c order by c.id", Cliente.class);
-			List<Cliente> resultados2 = query2.getResultList();
-			for (Cliente c : resultados2) {
+			for(Cliente c : Fachada.listarClientes())		
 				System.out.println(c);
-			}
 
 			System.out.println("\n*** Listagem de Senhas:");
-			TypedQuery<Senha> query3 = manager.createQuery("select s from Senha s order by s.id", Senha.class);
-			List<Senha> resultados3 = query3.getResultList();
-			for (Senha s : resultados3) {
+			for(Senha s : Fachada.listarSenhas())	
 				System.out.println(s);
-			}
-		
+			
+			System.out.println("\n*** Listagem de Eventos por Cliente:");
+			System.out.println(Fachada.eventosCliente("Kaue Henrique"));
+			
+			
+			System.out.println("\n*** Listagem de Senhas por Data:");
+			System.out.println(Fachada.senhasPorData("01/02/2025"));
+			
+			System.out.println("\n*** Listagem de Senhas por Evento:");
+			System.out.println(Fachada.senhasPorEvento(3));
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
-		Util.fecharBanco();
-		}
+		Fachada.finalizar();
+	}
 
 
 	//=================================================
