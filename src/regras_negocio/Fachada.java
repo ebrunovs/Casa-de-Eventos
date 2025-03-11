@@ -112,7 +112,7 @@ public class Fachada {
 				throw new Exception("Alterar Evento - formato data invalido:" + data);
 			}
 		}
-		if(dataOculpada(data)) {
+		if(dataOcupada(data)) {
 			DAO.rollback();
 			throw new Exception("Alterar Evento - essa data já possui um evento cadastrado:" + data);
 		}
@@ -145,7 +145,7 @@ public class Fachada {
 				throw new Exception("Alterar Evento - formato data invalido:" + data);
 			}
 		}
-		if(dataOculpada(data)) {
+		if(dataOcupada(data)) {
 			DAO.rollback();
 			throw new Exception("Alterar Evento - essa data já possui um evento cadastrado:" + data);
 		}
@@ -205,7 +205,7 @@ public class Fachada {
 				throw new Exception("Cpf já cadastrado: " + cpf);
 			};
 		}
-		Cliente c = new Cliente(cpf,nome);
+		Cliente c = new Cliente(nome);
 		c.setCPF(cpf);
 		daoCliente.create(c);
 		DAO.commit();
@@ -316,7 +316,9 @@ public class Fachada {
 		s.setCliente(c);
 		s.setEvento(e);
 		daoSenha.create(s);
+		System.out.println("Antes do commite");
 		DAO.commit();
+		System.out.println("depois do commite");
 	}
 	
 	public static void apagarSenha(String codSenha) throws Exception{
@@ -337,17 +339,23 @@ public class Fachada {
 	}
 	
 	public static List<Cliente> listarClientes() {
+		DAO.begin();
 		List<Cliente> result = daoCliente.readAll();
+		DAO.commit();
 		return result;
 	}
 
 	public static List<Evento> listarEventos() {
+		DAO.begin();
 		List<Evento> result = daoEvento.readAll();
+		DAO.commit();
 		return result;
 	}
 
 	public static List<Senha> listarSenhas() {
+		DAO.begin();
 		List<Senha> result = daoSenha.readAll();
+		DAO.commit();
 		return result;
 	}
 
@@ -364,7 +372,7 @@ public class Fachada {
 	}
 	public static List<Senha> senhasPorData(String data){
 		List<Senha> resultado;
-		resultado = daoEvento.passwordsByDate(data);
+		resultado =  daoEvento.passwordsByDate(data);
 		return resultado;
 	}
 	
@@ -379,7 +387,7 @@ public class Fachada {
 		if (caracteres.isEmpty())
 			result = daoCliente.readAll();
 		else
-			result = daoCliente.readAll(caracteres);
+			result = daoCliente.readAll();
 		return result;
 	}
 	
@@ -392,6 +400,13 @@ public class Fachada {
 			result.add(daoEvento.read(caracteres));
 		return result;
 	}
+	
+	public static List<Evento> EventosComNSenhas() {
+		List<Evento> resultado;
+		resultado = daoEvento.NPasswords();
+		return resultado;
+	}
+	
 	
 	
 	public static List<Senha> consultarSenhas(String senha) {
@@ -424,7 +439,7 @@ public class Fachada {
 	}
 	
 	
-	public static boolean dataOculpada(String data) throws  Exception{
+	public static boolean dataOcupada(String data) throws  Exception{
 		if(datasOcupadas.contains(data)) {
 			return true;
 		}

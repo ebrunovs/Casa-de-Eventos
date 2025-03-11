@@ -5,10 +5,14 @@
  **********************************/
 package daojpa;
 
+
+import java.util.List;
+
+
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import modelo.Aluno;
 import modelo.Cliente;
+import modelo.Evento;
 
 public class DAOCliente extends DAO<Cliente>{
 
@@ -21,7 +25,14 @@ public class DAOCliente extends DAO<Cliente>{
 
 		}catch(NoResultException e){
 			return null;
-		}
+		}		
+	}
+	
+	
+	public List<Evento> customerEvents(String nome){
+		TypedQuery<Evento> q = manager.createQuery("select e from Evento e join e.senhas s join s.cliente c where c.nome =:n", Evento.class);
+		q.setParameter("n", nome);
+		return q.getResultList();
 	}
 
 	}

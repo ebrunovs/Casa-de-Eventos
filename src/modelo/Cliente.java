@@ -5,12 +5,15 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Cliente20231370009")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -18,7 +21,7 @@ public class Cliente {
 	private String CPF;
 	private String nome;
 	
-	@OneToMany(mappedBy="cliente", cascade= {CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval = true)
+	@OneToMany(mappedBy="cliente", cascade= {CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Senha> senhas = new ArrayList<>();
 	
 	
@@ -31,6 +34,11 @@ public class Cliente {
 		this.CPF = cpf;
 		this.nome = nome;
 	}
+	
+	public Cliente(String nome) {
+		this.nome = nome;
+	}
+	
 	
 	public int getId() {
 		return id;
