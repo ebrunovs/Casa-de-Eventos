@@ -10,6 +10,7 @@ import java.util.List;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
+import modelo.Cliente;
 import modelo.Evento;
 import modelo.Senha;
 
@@ -57,7 +58,11 @@ public class DAOEvento extends DAO<Evento> {
 			    return q.getResultList();
 	}
 
-
+	public List<Cliente> customersInEvent(String nome){
+		TypedQuery<Cliente> q = manager.createQuery("select c from Cliente c join c.senhas s join s.evento e where e.nome = :n", Cliente.class);
+		q.setParameter("n", nome);
+		return q.getResultList();
+	}
 
 
 }

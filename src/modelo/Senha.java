@@ -16,9 +16,9 @@ public class Senha {
 	private int id;
 	private String codigo;
 	
-	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade= {CascadeType.MERGE})
 	private Evento evento;
-	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade= {CascadeType.MERGE})
 	private Cliente cliente;
 	
 	public Senha() {

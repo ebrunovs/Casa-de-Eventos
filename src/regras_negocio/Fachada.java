@@ -316,9 +316,7 @@ public class Fachada {
 		s.setCliente(c);
 		s.setEvento(e);
 		daoSenha.create(s);
-		System.out.println("Antes do commite");
-		DAO.commit();
-		System.out.println("depois do commite");
+		DAO.commit();	
 	}
 	
 	public static void apagarSenha(String codSenha) throws Exception{
@@ -370,12 +368,13 @@ public class Fachada {
 		resultado = daoCliente.customerEvents(nome);
 		return resultado;
 	}
+	
 	public static List<Senha> senhasPorData(String data){
 		List<Senha> resultado;
 		resultado =  daoEvento.passwordsByDate(data);
 		return resultado;
 	}
-	
+
 	public static List<Evento> senhasPorEvento(int n){
 		List<Evento> resultado;
 		resultado = daoEvento.passwordsByEvent(n);
@@ -391,7 +390,6 @@ public class Fachada {
 		return result;
 	}
 	
-	
 	public static List<Evento> consultarEventos(String caracteres) {
 		List<Evento> result = new ArrayList<>();
 		if (caracteres.isEmpty())
@@ -400,14 +398,12 @@ public class Fachada {
 			result.add(daoEvento.read(caracteres));
 		return result;
 	}
-	
+	//uma
 	public static List<Evento> EventosComNSenhas() {
 		List<Evento> resultado;
 		resultado = daoEvento.NPasswords();
 		return resultado;
 	}
-	
-	
 	
 	public static List<Senha> consultarSenhas(String senha) {
 		List<Senha> result;
@@ -417,13 +413,21 @@ public class Fachada {
 			result = daoSenha.readAll();
 		return result;
 	}
-
-
+	
+	public static boolean senhaExisteNoEvento(String senha) {
+		return daoSenha.PasswordExistInEvent(senha);
+	}
+	
+	public static List<Cliente> clientesEmEvento(String nome){
+		return daoEvento.customersInEvent(nome);
+	}
+	
 	/**********************************************************
 	 * 
 	 * CONSULTAS AUXILIARES
 	 * 
 	 **********************************************************/
+	
 	public static void acessarEvento(int senha) throws Exception{
 		if (senhaUsada(senha)) {
 			throw new Exception("Senha já utilizada!");

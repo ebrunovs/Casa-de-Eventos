@@ -35,5 +35,7 @@ public class DAOCliente extends DAO<Cliente>{
 		return q.getResultList();
 	}
 
+	
+	
 	}
 
