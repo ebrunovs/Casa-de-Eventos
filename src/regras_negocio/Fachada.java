@@ -382,11 +382,11 @@ public class Fachada {
 	}
 	
 	public static List<Cliente> consultarClientes(String caracteres) {
-		List<Cliente> result;
+		List<Cliente> result = new ArrayList<>();
 		if (caracteres.isEmpty())
 			result = daoCliente.readAll();
 		else
-			result = daoCliente.readAll();
+			result.add(daoCliente.read(caracteres));
 		return result;
 	}
 	
@@ -406,11 +406,11 @@ public class Fachada {
 	}
 	
 	public static List<Senha> consultarSenhas(String senha) {
-		List<Senha> result;
+		List<Senha> result = new ArrayList<>();
 		if (senha.isEmpty())
 			result = daoSenha.readAll();
 		else
-			result = daoSenha.readAll();
+			result.add(daoSenha.read(senha));
 		return result;
 	}
 	
