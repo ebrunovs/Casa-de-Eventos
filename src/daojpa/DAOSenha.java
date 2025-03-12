@@ -26,10 +26,11 @@ public class DAOSenha extends DAO<Senha> {
 		}
 	}
 	
-	public boolean PasswordExistInEvent(String senha){	
+	public boolean PasswordExistInEvent(String senha, String evento){	
 		try {
-		TypedQuery<Senha> q = manager.createQuery("select s from Senha s join s.evento e where e.nome = 'Casamento' and s.codigo = :s", Senha.class);
+		TypedQuery<Senha> q = manager.createQuery("select s from Senha s join s.evento e where e.nome = :e and s.codigo = :s", Senha.class);
 		q.setParameter("s", senha);
+		q.setParameter("e", evento);
 		if (q.getSingleResult() != null) {
 			return true;
 			}

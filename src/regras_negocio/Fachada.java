@@ -414,8 +414,8 @@ public class Fachada {
 		return result;
 	}
 	
-	public static boolean senhaExisteNoEvento(String senha) {
-		return daoSenha.PasswordExistInEvent(senha);
+	public static boolean senhaExisteNoEvento(String senha, String evento) {
+		return daoSenha.PasswordExistInEvent(senha, evento);
 	}
 	
 	public static List<Cliente> clientesEmEvento(String nome){

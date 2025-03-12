@@ -26,7 +26,7 @@ public class Consultar {
 				System.out.println(e);
 				
 			System.out.println("\n---Senha ja existe no evento?");
-			System.out.println(Fachada.senhaExisteNoEvento("543211"));
+			System.out.println(Fachada.senhaExisteNoEvento("543211", "Casamento"));
 			
 			System.out.println("\n---Lista de convidados para o Casamento: ");
 			for (Cliente c : Fachada.clientesEmEvento("Casamento"))

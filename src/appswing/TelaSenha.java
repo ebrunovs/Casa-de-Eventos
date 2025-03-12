@@ -148,7 +148,7 @@ public class TelaSenha {
 			}
 		});
 		apagar_button.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		apagar_button.setBounds(169, 340, 74, 23);
+		apagar_button.setBounds(219, 340, 74, 23);
 		frame.getContentPane().add(apagar_button);
 
 		label = new JLabel("");
@@ -243,6 +243,10 @@ public class TelaSenha {
 		});
 		limpar_button.setBounds(276, 234, 89, 23);
 		frame.getContentPane().add(limpar_button);
+	
+		
+
+
 		
 		cliente_label = new JLabel("Cliente: ");
 		cliente_label.setBounds(41, 293, 45, 13);
@@ -252,6 +256,20 @@ public class TelaSenha {
 		cliente_textField.setBounds(101, 290, 165, 19);
 		frame.getContentPane().add(cliente_textField);
 		cliente_textField.setColumns(10);
+		
+		JButton atualizar_button = new JButton("Atualizar");
+		atualizar_button.setToolTipText("atualizar evento ");
+		atualizar_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					listagem();
+				} catch (Exception ex2) {
+					label.setText(ex2.getMessage());
+				}
+			}
+		});
+		atualizar_button.setBounds(101, 340, 89, 23);
+		frame.getContentPane().add(atualizar_button);
 
 		frame.setVisible(true);
 	}
