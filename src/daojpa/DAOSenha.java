@@ -1,29 +1,27 @@
-/**********************************
- * IFPB - SI
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- **********************************/
-package daojpa;
 
-import java.util.List;
+package daojpa;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import modelo.Evento;
 import modelo.Senha;
 
 public class DAOSenha extends DAO<Senha> {
 
 	public Senha read(Object chave) {
 		try {
-			String numero = (String) chave;
-			TypedQuery<Senha> q = manager.createQuery("select s from Senha s where s.codigo = :n ",
+			String numero = String.valueOf(chave);
+			TypedQuery<Senha> q = manager.createQuery("select s from Senha s where s.id = :n ",
 					Senha.class);
 			q.setParameter("n", numero);
 			return q.getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	
+	@Override
+	public void create(Senha obj) {
+		manager.persist(obj);
 	}
 	
 	public boolean PasswordExistInEvent(String senha, String evento){	
@@ -40,14 +38,4 @@ public class DAOSenha extends DAO<Senha> {
 		return false;	
 	}
 
-//	System.out.println("\n---Senha ja existe no evento? (CASO NEGATIVO) ");
-//	jpql = "select s from Senha s " +
-//		   "join s.evento e " +
-//	       "where e.nome = 'Casamento' and s.codigo = '12345'";
-//	query3 = manager.createQuery(jpql, Senha.class);
-//	senhas = query3.getResultList();
-//	if (senhas.isEmpty())
-//	    System.out.println("Senha não existe no evento");
-//	else
-//	    System.out.println("Senha já existe no evento");
 }
