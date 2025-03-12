@@ -96,12 +96,13 @@ public class TelaSenha {
 				try {
 					if (table.getSelectedRow() >= 0) {
 						// pegar o nome, data nascimento e apelidos da pessoa selecionada
-						String codigo = (String) table.getValueAt(table.getSelectedRow(), 1);
-						Senha sen = Fachada.localizarSenha(codigo);
+						Integer idSenha = (Integer) table.getValueAt(table.getSelectedRow(), 0);
+						Senha sen = Fachada.localizarSenha(idSenha);
+						String cod = sen.getCodigo();
 						String ev = sen.getEvento().getNome();
 						String cli = sen.getCliente().getNome();
 						evento_textField.setText(ev);
-						codigo_textField.setText(codigo);
+						codigo_textField.setText(cod);
 						cliente_textField.setText(cli);
 					}
 				} catch (Exception erro) {
@@ -214,7 +215,6 @@ public class TelaSenha {
 					String evento = evento_textField.getText().trim();
 					String codigo = codigo_textField.getText().trim();
 					String cliente = cliente_textField.getText().trim();
-
 					Fachada.criarSenha(codigo,evento,cliente);
 			
 					label.setText("Senha cadastrada");
