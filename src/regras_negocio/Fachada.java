@@ -44,10 +44,10 @@ public class Fachada {
 		return e;
 	}
 	
-	public static Senha localizarSenha(String cod) throws Exception {
-		Senha s = daoSenha.read(cod);
+	public static Senha localizarSenha(Integer id) throws Exception {
+		Senha s = daoSenha.read(id);
 		if (s == null) {
-			throw new Exception("Senha inexistente:" + cod);
+			throw new Exception("Senha inexistente:" + id);
 		}
 		return s;
 	}
@@ -277,7 +277,6 @@ public class Fachada {
 
 	
 	public static void criarSenha(String codigo, String evento, String cliente) throws Exception{
-		DAO.begin();
 		Evento e = daoEvento.read(evento);
 		if (e == null) {
 			DAO.rollback();
@@ -289,27 +288,24 @@ public class Fachada {
 			throw new Exception("Criar Senha - cliente inexistente " + cliente);
 		}
 		Senha s = daoSenha.read(codigo);
-		if (s != null) {
-			DAO.rollback();
-			throw new Exception("Criar Senha - Senha já cadastrada:" + codigo);
-		}
+//		if (s != null) {
+//			DAO.rollback();
+//			throw new Exception("Criar Senha - Senha já cadastrada:" + idigo);
+//		}
 		if (codigo.isEmpty()) {
 			DAO.rollback();
 			throw new Exception("Criar Senha - senha vazia:" + codigo);
 		}
-		for(Senha senha : listarSenhas()) {
-			// Senha so pode ser criada se não houver uma mesma no cliente X
-			if(senha.getCodigo() == codigo && senha.getCliente().getCPF().equals(c.getCPF()) && senha.getEvento().getId() == e.getId()) {
-				DAO.rollback();
-				throw new Exception("Criar Senha - senha já cadastrada em um cliente deste evento");
+		if(s != null) {
+			for(Senha senha : listarSenhas()) {
+				// Senha so pode ser criada se não houver uma mesma no evento X
+				if(senha.getCodigo().equals(codigo) && senha.getEvento().getId() == e.getId()) {
+					DAO.rollback();
+					throw new Exception("Criar Senha - senha já cadastrada nesse evento");
+				}	
 			}
-			// Senha so pode ser criada se não houver uma mesma no evento X
-			if(senha.getCodigo() == codigo && senha.getEvento().getId() == e.getId()) {
-				DAO.rollback();
-				throw new Exception("Criar Senha - senha já cadastrada nesse evento");
-			}	
 		}
-
+		DAO.begin();
 		s = new Senha(codigo);
 		c.adicionar(s);
 		e.adicionar(s);
@@ -319,12 +315,12 @@ public class Fachada {
 		DAO.commit();	
 	}
 	
-	public static void apagarSenha(String codSenha) throws Exception{
+	public static void apagarSenha(String idSenha) throws Exception{
 		DAO.begin();
-		Senha s = daoSenha.read(codSenha);
+		Senha s = daoSenha.read(idSenha);
 		if(s == null) {
 			DAO.rollback();
-			throw new Exception("Apagar senha - senha inexistente:" + codSenha);
+			throw new Exception("Apagar senha - senha inexistente:" + idSenha);
 		}
 		Cliente c = s.getCliente();
 		Evento e = s.getEvento();
@@ -354,6 +350,7 @@ public class Fachada {
 		DAO.begin();
 		List<Senha> result = daoSenha.readAll();
 		DAO.commit();
+
 		return result;
 	}
 
