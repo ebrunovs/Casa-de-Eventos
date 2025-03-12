@@ -1,10 +1,4 @@
 
-/**********************************
- * IFPB - SI
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- **********************************/
-
 package daojpa;
 
 import java.lang.reflect.ParameterizedType;
@@ -14,7 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 public abstract class DAO<T> implements DAOInterface<T> {
-	protected static EntityManager manager;
+	public static EntityManager manager;
 
 	public DAO() {
 	}
@@ -52,7 +46,7 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		return  query.getResultList();
 	}
 
-	// ----------------------- TRANSAÇÃO ----------------------
+	// ----------------------- TRANSAï¿½ï¿½O ----------------------
 	public static void begin() {
 		if (!manager.getTransaction().isActive())
 			manager.getTransaction().begin();
