@@ -21,8 +21,8 @@ public class Consultar {
 			for (Senha s : Fachada.senhasPorData("11/12/2025"))
 				System.out.println(s);
 			
-			System.out.println("\n---quais os eventos que tem mais de n senhas ?");
-			for (Evento e : Fachada.EventosComNSenhas())
+			System.out.println("\n---quais os eventos que tem mais de 3 senhas ?");
+			for (Evento e : Fachada.EventosComNSenhas(3))
 				System.out.println(e);
 				
 			System.out.println("\n---Senha ja existe no evento?");

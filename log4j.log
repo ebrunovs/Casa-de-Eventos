@@ -1,15 +1,15 @@
-21:25:01,306  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
-21:25:01,309  INFO Util:34 - sgbd => postgresql
-21:25:01,310  INFO Util:35 - banco => pob
-21:25:01,310  INFO Util:36 - ip => localhost
-21:25:01,310  INFO Util:41 - ----configurando postgresql
-21:25:01,334 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-21:25:01,427  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-21:25:01,471  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
-21:25:01,495 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-21:25:01,496  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-21:25:01,677  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-21:25:01,916  INFO pooling:157 - HHH10001005: Database info:
+21:39:45,210  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
+21:39:45,213  INFO Util:34 - sgbd => postgresql
+21:39:45,213  INFO Util:35 - banco => pob
+21:39:45,215  INFO Util:36 - ip => localhost
+21:39:45,215  INFO Util:41 - ----configurando postgresql
+21:39:45,233 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+21:39:45,331  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+21:39:45,373  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
+21:39:45,403 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+21:39:45,403  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+21:39:45,612  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+21:39:45,974  INFO pooling:157 - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
 	Database driver: org.postgresql.Driver
 	Database version: 17.4
@@ -17,97 +17,109 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-21:25:02,701  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-21:25:02,717  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6917e9b4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-21:25:03,091 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:03,110 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:03,111 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:03,127 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:03,127 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:03,128 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:03,128 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:25:03,129 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:03,129 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:25:03,130 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:03,130 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
-21:25:03,132 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:03,132 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:03,134 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:03,134 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:05,483 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:25:05,483 TRACE bind:24 - binding parameter (1:VARCHAR) <- [863423]
-21:25:09,409 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:25:09,410 TRACE bind:24 - binding parameter (1:VARCHAR) <- [863423]
-21:25:09,423 DEBUG SQL:135 - delete from Senha20231370009 where id=?
-21:25:09,424 TRACE bind:24 - binding parameter (1:INTEGER) <- [6]
-21:25:09,428 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:09,428 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:09,429 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:09,429 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:09,430 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:09,430 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:09,430 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:25:09,431 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:09,431 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:25:09,432 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:09,432 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:09,432 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:09,433 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:10,533 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:13,011 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
-21:25:13,011 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Casamento]
-21:25:13,013 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
-21:25:13,014 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Roberta Emilia]
-21:25:13,014 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
-21:25:13,015 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
-21:25:13,017 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:25:13,017 TRACE bind:24 - binding parameter (1:VARCHAR) <- [863423]
-21:25:13,017 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:13,021 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:13,022 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:13,022 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:13,023 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:13,023 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:13,024 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:13,024 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:25:13,024 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:13,024 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:25:13,025 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:13,025 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:13,026 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:13,026 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:13,947 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,183 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,352 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,508 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,666 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,813 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:16,974 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,125 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,279 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,429 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,579 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,739 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:17,899 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:18,049 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:18,227 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:18,376 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:18,565 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:27,096 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:27,296 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:27,438 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:27,587 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:28,510  INFO Util:70 - ----desconectar banco
-21:25:29,914  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
-21:25:29,915  INFO Util:34 - sgbd => postgresql
-21:25:29,915  INFO Util:35 - banco => pob
-21:25:29,915  INFO Util:36 - ip => localhost
-21:25:29,915  INFO Util:41 - ----configurando postgresql
-21:25:29,920  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-21:25:29,922 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-21:25:29,922  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-21:25:29,949  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-21:25:30,000  INFO pooling:157 - HHH10001005: Database info:
+21:39:46,792  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+21:39:46,805  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5bf6811e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:39:47,151 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:39:47,173 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:47,174 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:39:47,183 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:47,183 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:39:47,185 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:47,185 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:39:47,186 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:47,186 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:47,187 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:47,187 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:47,188 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:47,188 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:47,189 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:47,190 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:47,191 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:47,191 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:39:53,559 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:39:53,596 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
+21:39:53,596 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lauro Lindo]
+21:39:53,608 DEBUG SQL:135 - insert into Cliente20231370009 (CPF,nome) values (?,?)
+21:39:53,609 TRACE bind:24 - binding parameter (1:VARCHAR) <- [1231231231231]
+21:39:53,610 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Lauro Lindo]
+21:39:53,620 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:39:53,622 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,622 TRACE bind:24 - binding parameter (1:INTEGER) <- [6]
+21:39:53,622 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,622 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:39:53,623 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:53,623 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:39:53,625 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,625 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:39:53,626 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,626 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:53,626 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:53,626 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:53,627 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,627 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:53,628 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:53,628 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:53,629 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:53,629 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:39:56,375 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
+21:39:56,375 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lauro Lindo]
+21:39:59,496 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
+21:39:59,496 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lauro Lindo]
+21:39:59,503 DEBUG SQL:135 - delete from Cliente20231370009 where id=?
+21:39:59,503 TRACE bind:24 - binding parameter (1:INTEGER) <- [6]
+21:39:59,506 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:39:59,507 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:59,507 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:39:59,508 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:59,508 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:39:59,509 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:59,509 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:39:59,510 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:59,510 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:59,510 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:59,511 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:39:59,512 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:59,512 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:59,513 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:39:59,513 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:39:59,514 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:39:59,514 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:04,293 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:40:04,295 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
+21:40:04,296 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lauro Lindo]
+21:40:04,297 DEBUG SQL:135 - insert into Cliente20231370009 (CPF,nome) values (?,?)
+21:40:04,297 TRACE bind:24 - binding parameter (1:VARCHAR) <- [1231231231231]
+21:40:04,297 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Lauro Lindo]
+21:40:04,298 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0
+21:40:04,299 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,299 TRACE bind:24 - binding parameter (1:INTEGER) <- [7]
+21:40:04,300 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,300 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:40:04,300 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:04,301 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:04,301 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,302 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:40:04,302 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,302 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:04,303 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:04,303 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:04,304 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,304 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:04,304 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:04,304 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:04,305 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:04,306 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:06,870  INFO Util:70 - ----desconectar banco
+21:40:08,057  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
+21:40:08,058  INFO Util:34 - sgbd => postgresql
+21:40:08,058  INFO Util:35 - banco => pob
+21:40:08,058  INFO Util:36 - ip => localhost
+21:40:08,058  INFO Util:41 - ----configurando postgresql
+21:40:08,063  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+21:40:08,064 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+21:40:08,065  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+21:40:08,090  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+21:40:08,128  INFO pooling:157 - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
 	Database driver: org.postgresql.Driver
 	Database version: 17.4
@@ -115,72 +127,62 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-21:25:30,051  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-21:25:30,052  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@283a4506] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-21:25:30,142 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:25:30,319 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:30,320 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:30,320 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:30,320 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:30,321 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:30,321 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:25:30,322 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:25:30,322 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:25:30,323 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:30,323 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:25:30,323 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:25:30,324 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:25:49,119 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
-21:25:49,120 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Oficina do bolo]
-21:26:08,449 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
-21:26:08,450 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ENEX 7]
-21:26:08,451 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:08,452 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:08,452 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
-21:26:08,453 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:08,453 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:08,454 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:08,455 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
-21:26:08,455 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:26:08,456 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
-21:26:08,456 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:26:08,457 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
-21:26:08,457 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:08,459 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
-21:26:08,459 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Mariana Pereira]
-21:26:08,461 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:26:08,461 TRACE bind:24 - binding parameter (1:VARCHAR) <- [123412]
-21:26:08,462 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:08,464 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:08,464 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:08,465 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:08,465 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:08,466 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:08,466 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:08,466 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:26:08,467 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:08,467 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:26:08,467 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:08,467 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:08,469 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:08,469 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:10,290 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:11,314 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:11,473 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:13,753 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:13,754 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:13,755 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:15,775  INFO Util:70 - ----desconectar banco
-21:26:23,754  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
-21:26:23,755  INFO Util:34 - sgbd => postgresql
-21:26:23,755  INFO Util:35 - banco => pob
-21:26:23,755  INFO Util:36 - ip => localhost
-21:26:23,755  INFO Util:41 - ----configurando postgresql
-21:26:23,759  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-21:26:23,760 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-21:26:23,760  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-21:26:23,786  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-21:26:23,840  INFO pooling:157 - HHH10001005: Database info:
+21:40:08,184  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+21:40:08,184  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6978df0d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:40:08,263 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0
+21:40:08,265 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:08,266 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:08,267 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:08,267 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:08,268 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:08,268 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:08,270 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:08,270 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:40:08,271 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:08,271 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:40:08,272 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:08,273 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:08,273 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:08,273 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:08,274 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:08,274 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:21,301 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
+21:40:21,301 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Oficina do bolo]
+21:40:21,303 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0
+21:40:21,307 DEBUG SQL:135 - insert into Evento20231370009 (data,nome,preco) values (?,?,?)
+21:40:21,307 TRACE bind:24 - binding parameter (1:VARCHAR) <- [14/03/2025]
+21:40:21,307 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Oficina do bolo]
+21:40:21,307 TRACE bind:24 - binding parameter (3:DOUBLE) <- [4.33]
+21:40:21,309 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0
+21:40:21,309 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:21,310 TRACE bind:24 - binding parameter (1:INTEGER) <- [8]
+21:40:21,310 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:21,310 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:21,311 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:21,311 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:21,313 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:21,313 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:21,314 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:21,314 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:40:21,314 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:21,314 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:40:21,314 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:21,314 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:21,315 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:21,315 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:21,315 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:21,316 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:23,011  INFO Util:70 - ----desconectar banco
+21:40:23,638  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
+21:40:23,639  INFO Util:34 - sgbd => postgresql
+21:40:23,639  INFO Util:35 - banco => pob
+21:40:23,639  INFO Util:36 - ip => localhost
+21:40:23,639  INFO Util:41 - ----configurando postgresql
+21:40:23,642  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+21:40:23,644 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+21:40:23,644  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+21:40:23,666  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+21:40:23,812  INFO pooling:157 - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
 	Database driver: org.postgresql.Driver
 	Database version: 17.4
@@ -188,99 +190,59 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-21:26:23,900  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-21:26:23,900  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7c470049] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-21:26:23,981 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:23,983 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:23,983 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:23,984 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:23,985 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:23,985 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:23,985 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:26:23,986 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:23,986 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:26:23,986 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:23,987 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:23,987 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:23,987 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:25,901 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:26,886 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:27,111 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:27,352 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:27,596 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:30,058 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:32,869 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:53,856 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
-21:26:53,856 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ENEX 7]
-21:26:53,859 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
-21:26:53,859 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Kaue Henrique]
-21:26:53,861 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:26:53,862 TRACE bind:24 - binding parameter (1:VARCHAR) <- [123456]
-21:26:53,863 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:53,864 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:53,864 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:53,864 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:53,865 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:53,865 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:53,866 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:53,866 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:26:53,867 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:26:53,867 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:26:53,868 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:53,868 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:26:53,868 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:26:53,868 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:26:55,719 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,093 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,242 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,402 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,549 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,696 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,834 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:56,983 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:59,265 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:59,266 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:26:59,267  INFO Util:70 - ----desconectar banco
-21:27:00,349  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
-21:27:00,350  INFO Util:34 - sgbd => postgresql
-21:27:00,350  INFO Util:35 - banco => pob
-21:27:00,350  INFO Util:36 - ip => localhost
-21:27:00,350  INFO Util:41 - ----configurando postgresql
-21:27:00,353  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-21:27:00,355 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-21:27:00,355  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-21:27:00,378  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-21:27:00,417  INFO pooling:157 - HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
-	Database driver: org.postgresql.Driver
-	Database version: 17.4
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Minimum pool size: 1
-	Maximum pool size: 20
-21:27:00,462  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-21:27:00,462  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4173b205] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-21:27:00,542 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
-21:27:00,544 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:27:00,544 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:27:00,546 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:27:00,546 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:27:00,547 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:27:00,547 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
-21:27:00,548 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
-21:27:00,548 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
-21:27:00,549 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:27:00,549 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
-21:27:00,550 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
-21:27:00,550 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
-21:27:04,730 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:27:04,730 TRACE bind:24 - binding parameter (1:VARCHAR) <- [135689]
-21:27:05,315 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:27:05,315 TRACE bind:24 - binding parameter (1:VARCHAR) <- [135689]
-21:27:05,657 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:27:05,657 TRACE bind:24 - binding parameter (1:VARCHAR) <- [914624]
-21:27:07,536 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:27:07,537 TRACE bind:24 - binding parameter (1:VARCHAR) <- [914624]
-21:27:07,760 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.codigo=?
-21:27:07,761 TRACE bind:24 - binding parameter (1:VARCHAR) <- [914624]
-21:29:15,754  INFO Util:70 - ----desconectar banco
+21:40:23,859  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+21:40:23,860  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@400c1046] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:40:23,940 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
+21:40:23,944 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:23,945 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:23,948 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:23,948 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:23,949 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:23,949 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:23,950 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:23,950 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:40:23,950 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:23,951 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:40:23,951 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:23,951 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:23,952 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:23,953 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:23,953 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:23,954 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:47,176 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Evento20231370009 e1_0 where e1_0.nome=?
+21:40:47,177 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Oficina do bolo]
+21:40:47,177 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:47,178 TRACE bind:24 - binding parameter (1:INTEGER) <- [8]
+21:40:47,180 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome from Cliente20231370009 c1_0 where c1_0.nome=?
+21:40:47,180 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lauro Lindo]
+21:40:47,180 DEBUG SQL:135 - select s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Senha20231370009 s1_0 left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where s1_0.cliente_id=?
+21:40:47,181 TRACE bind:24 - binding parameter (1:INTEGER) <- [7]
+21:40:47,185 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0 where s1_0.id=?
+21:40:47,187 TRACE bind:24 - binding parameter (1:INTEGER) <- [123123]
+21:40:47,188 DEBUG SQL:135 - insert into Senha20231370009 (cliente_id,codigo,evento_id) values (?,?,?)
+21:40:47,188 TRACE bind:24 - binding parameter (1:INTEGER) <- [7]
+21:40:47,188 TRACE bind:24 - binding parameter (2:VARCHAR) <- [123123]
+21:40:47,188 TRACE bind:24 - binding parameter (3:INTEGER) <- [8]
+21:40:47,192 DEBUG SQL:135 - select s1_0.id,s1_0.cliente_id,s1_0.codigo,s1_0.evento_id from Senha20231370009 s1_0
+21:40:47,193 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,193 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:47,194 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,194 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:47,195 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,195 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:47,195 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,195 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+21:40:47,196 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,196 TRACE bind:24 - binding parameter (1:INTEGER) <- [5]
+21:40:47,197 DEBUG SQL:135 - select c1_0.id,c1_0.CPF,c1_0.nome,s1_0.cliente_id,s1_0.id,s1_0.codigo,e1_0.id,e1_0.data,e1_0.nome,e1_0.preco from Cliente20231370009 c1_0 left join Senha20231370009 s1_0 on c1_0.id=s1_0.cliente_id left join Evento20231370009 e1_0 on e1_0.id=s1_0.evento_id where c1_0.id=?
+21:40:47,197 TRACE bind:24 - binding parameter (1:INTEGER) <- [7]
+21:40:47,197 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:47,198 TRACE bind:24 - binding parameter (1:INTEGER) <- [8]
+21:40:47,198 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:47,198 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+21:40:47,199 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:47,199 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+21:40:47,200 DEBUG SQL:135 - select s1_0.evento_id,s1_0.id,c1_0.id,c1_0.CPF,c1_0.nome,s1_0.codigo from Senha20231370009 s1_0 left join Cliente20231370009 c1_0 on c1_0.id=s1_0.cliente_id where s1_0.evento_id=?
+21:40:47,200 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+21:40:56,576  INFO Util:70 - ----desconectar banco
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             21:40:55,861  INFO Util:70 - ----desconectar banco

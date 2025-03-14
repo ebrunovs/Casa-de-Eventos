@@ -218,7 +218,7 @@ public class TelaConsultas {
 		        	
 		            int qtdeSenhas = Integer.parseInt(senhas_qtde_textField.getText());
 		            
-		            List<Evento> eventos = Fachada.senhasPorEvento(qtdeSenhas);
+		            List<Evento> eventos = Fachada.EventosComNSenhas(qtdeSenhas);
 		            if(eventos.isEmpty())
 		            	throw new Exception("O evento não possui senhas.");
 

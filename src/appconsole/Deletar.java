@@ -14,8 +14,8 @@ public class Deletar {
 			Fachada.apagarEvento("SECT");
 			System.out.println("apagou o evento SECT e suas senhas orfas");
 			
-			Fachada.apagarSenha("863423");
-			System.out.println("apagou a senha 863423");
+			Fachada.apagarSenha(2);
+			System.out.println("apagou a senha 2");
 			
 		} 
 		catch (Exception e) {

@@ -50,11 +50,12 @@ public class DAOEvento extends DAO<Evento> {
 	    return q.getResultList();
 	}
 	
-	public List<Evento> NPasswords(){
+	public List<Evento> NPasswords(int n){
 		 TypedQuery<Evento> q = manager.createQuery(
 			        """
-			       select e from Evento e where size(e.senhas) > 4
+			       select e from Evento e where size(e.senhas) >= :n
 			        """, Evento.class);
+		 q.setParameter("n",n);
 			    return q.getResultList();
 	}
 

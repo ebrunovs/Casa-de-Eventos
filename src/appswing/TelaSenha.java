@@ -131,7 +131,7 @@ public class TelaSenha {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					// pegar o nome na linha selecionada
-					String cod = codigo_textField.getText();
+					Integer cod = (Integer) table.getValueAt(table.getSelectedRow(), 0);
 					Object[] options = { "Confirmar", "Cancelar" };
 					int escolha = JOptionPane.showOptionDialog(null,
 							"Esta operacao apaga a senha: " + cod, "Alerta",

@@ -53,7 +53,7 @@ public class Fachada {
 	}
 	
 	public static void criarEvento(String nome, String data, double preco) throws  Exception{
-		DAO.begin();
+		
 		try {
 			LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		} catch (DateTimeParseException e) {
@@ -71,19 +71,20 @@ public class Fachada {
 			throw new Exception("O evento não pode ter preço negativo.");
 		}
 		//Um evento não poderá ocorrer no mesmo dia de outro.
-		for(Evento ev : listarEventos()) {
-			if(ev.getData().equals(data)) {
-				DAO.rollback();
-				throw new Exception("Evento não pode ocorrer no mesmo dia que outro.");
+		if(c == null) {
+			for(Evento ev : listarEventos()) {
+				if(ev.getData().equals(data)) {
+					DAO.rollback();
+					throw new Exception("Evento não pode ocorrer no mesmo dia que outro.");
+				}
 			}
-		}
-			//Um evento não poderá ocorrer em uma data que já passou.
+		}	//Um evento não poderá ocorrer em uma data que já passou.
 		if(compararData(data)) {
 				DAO.rollback();
 				throw new Exception("O evento não pode ser criado em uma data que já passou.");
 			}
 
-
+			DAO.begin();
 	        Evento e = new Evento(nome);
 	        e.setData(data);
 	        e.setPreco(preco);
@@ -198,13 +199,16 @@ public class Fachada {
 	
 	
 	public static void criarCliente(String cpf, String nome ) throws Exception{
-		DAO.begin();
 		List<Cliente> lista = listarClientes();
-		for (Cliente c : lista) {
-			if (c.getCPF().equals(cpf)) {
-				throw new Exception("Cpf já cadastrado: " + cpf);
-			};
+		Cliente ce = daoCliente.read(nome);
+		if (ce == null) {
+			for (Cliente c : lista) {
+				if (c.getCPF().equals(cpf)) {
+					throw new Exception("Cpf já cadastrado: " + cpf);
+				};
+			}
 		}
+		DAO.begin();
 		Cliente c = new Cliente(nome);
 		c.setCPF(cpf);
 		daoCliente.create(c);
@@ -315,7 +319,7 @@ public class Fachada {
 		DAO.commit();	
 	}
 	
-	public static void apagarSenha(String idSenha) throws Exception{
+	public static void apagarSenha(int idSenha) throws Exception{
 		DAO.begin();
 		Senha s = daoSenha.read(idSenha);
 		if(s == null) {
@@ -378,6 +382,8 @@ public class Fachada {
 		return resultado;
 	}
 	
+	
+	
 	public static List<Cliente> consultarClientes(String caracteres) {
 		List<Cliente> result = new ArrayList<>();
 		if (caracteres.isEmpty())
@@ -396,9 +402,9 @@ public class Fachada {
 		return result;
 	}
 	//uma
-	public static List<Evento> EventosComNSenhas() {
+	public static List<Evento> EventosComNSenhas(int n) {
 		List<Evento> resultado;
-		resultado = daoEvento.NPasswords();
+		resultado = daoEvento.NPasswords(n);
 		return resultado;
 	}
 	
