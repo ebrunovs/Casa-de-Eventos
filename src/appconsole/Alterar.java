@@ -8,7 +8,7 @@ public class Alterar {
 		Fachada.inicializar();
 		//alteracao 1
 		try {
-			Fachada.alterarDataEvento("SECT","12/12/2024");
+			Fachada.alterarDataEvento("SECT","12/12/2025");
 			System.out.println("alterado data do evento 'SECT' para dia 12");
 		}
 		catch (Exception e) {
