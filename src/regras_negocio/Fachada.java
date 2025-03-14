@@ -201,7 +201,7 @@ public class Fachada {
 	public static void criarCliente(String cpf, String nome ) throws Exception{
 		List<Cliente> lista = listarClientes();
 		Cliente ce = daoCliente.read(nome);
-		if (ce == null) {
+		if (ce != null) {
 			for (Cliente c : lista) {
 				if (c.getCPF().equals(cpf)) {
 					throw new Exception("Cpf já cadastrado: " + cpf);
